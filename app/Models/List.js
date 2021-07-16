@@ -68,11 +68,15 @@ export default class List {
                                 placeholder="Add Task..." minlength="3" maxlength="50">
                         </div>
                         <div class="col-md-1 align-self-end mb-1">
-                            <button type="button" class="btn">➕</button>
+                            <button type="button" class="btn btn-${this.color}">➕</button>
                         </div>
                     </div>
                 </div>
             </div>
         `
+    }
+
+    get ItemTemplate() {
+        return ``
     }
 }

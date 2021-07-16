@@ -3,7 +3,7 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
-  lists = [new List({ listName: "Temp", color: "blue" })]
+  lists = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { listsService } from "../Services/ListsService.js";
+import { loadState, saveState } from "../Utils/LocalStorage.js"
 
 function _draw() {
     let template = ''
@@ -14,7 +15,10 @@ function _draw() {
 export default class ListsController {
     constructor() {
         ProxyState.on('lists', _draw)
+        ProxyState.on('lists', saveState)
         _draw()
+        loadState()
+
     }
 
     createList(event) {
