@@ -10695,7 +10695,11 @@ main {
   flex-grow: 1;
 }
 
-.shadow {
+.header-shadow {
     text-shadow: 1px 2px 4px grey;;
+}
+
+i.icon-red {
+  color: red;
 }
 /*# sourceMappingURL=main.css.map */
