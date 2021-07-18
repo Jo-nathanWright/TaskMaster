@@ -12,8 +12,8 @@ export default class Task {
             <div class="d-flex flex-row justify-content-between">
                 <div class="col-7 align-self-center">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
+                        <input class="form-check-input" name="${this.taskName}" type="checkbox">
+                        <label class="form-check-label" for="${this.taskName}">
                             ${this.taskName}
                         </label>
                     </div>

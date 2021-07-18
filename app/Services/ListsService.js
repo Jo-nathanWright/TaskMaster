@@ -12,12 +12,17 @@ class ListsService {
     }
 
     destroy(id) {
-        ProxyState.lists = ProxyState.lists.filter(lists => lists.id != id)
-        ProxyState.tasks = ProxyState.tasks.filter(tasks => tasks.listsId != id)
+        if (confirm("Confirm Delete? This cannot be undone.")) {
+            ProxyState.lists = ProxyState.lists.filter(lists => lists.id != id)
+            ProxyState.tasks = ProxyState.tasks.filter(tasks => tasks.listsId != id)
+        }
+
     }
 
     deleteTask(id) {
-        ProxyState.tasks = ProxyState.tasks.filter(tasks => tasks.id != id)
+        if (confirm("Delete Task? This cannot be undone.")) {
+            ProxyState.tasks = ProxyState.tasks.filter(tasks => tasks.id != id)
+        }
     }
 
 
