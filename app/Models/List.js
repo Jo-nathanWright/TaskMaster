@@ -19,7 +19,7 @@ export default class List {
                         <div class="p-1">
                             <div class="text-center">
                                 <div class="text-right">
-                                    <button type="button" class="btn">❌</button>
+                                    <button type="button" class="btn" onclick="app.listsController.destroy('${this.id}')">❌</button>
                                 </div>
                                 <p class="pt-1"><b>${this.listName}</b></p>
                                 <p>2/2</p>
@@ -30,45 +30,27 @@ export default class List {
                     <!--Is the Items in the list-->
 
                     <div class="row py-2">
-                        <div class="mx-2">
-                            <div class="d-flex flex-row justify-content-between pb-2">
-                                <div class="col-5">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            RaceCar
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-1">
-                                    <p><i class="mdi mdi-delete"></i></p>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-row justify-content-between">
-                                <div class="col-5">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            FireTruck
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-1">
-                                    <p><i class="mdi mdi-delete"></i></p>
-                                </div>
+                        <div class="mx-3">
+                            <div class="d-flex flex-column">
+                                ${this.TaskTemplate}
                             </div>
                         </div>
                     </div>
+
                     <!--This sets up New Items in the list-->
-                    <div class="row d-flex flex-row">
-                        <div class="form-group col-md-8 mb-1 mx-1">
-                            <label for="newItem"></label>
-                            <input type="text" name="newItem" id="${this.id}" class="form-control"
-                                placeholder="Add Task..." minlength="3" maxlength="50">
-                        </div>
-                        <div class="col-md-1 align-self-end mb-1">
-                            <button type="button" class="btn btn-${this.color}">➕</button>
+
+                    <div class="row">
+                        <div class="d-flex flex-row justify-content-between">
+                            <form onsubmit="app.listsController.addTask('${this.id}', event)">
+                                <div class="form-group col-7 mb-1 mx-1">
+                                    <label for="taskName"></label>
+                                    <input type="text" name="taskName" class="form-control"
+                                        placeholder="Add Task..." minlength="3" maxlength="50" required>
+                                </div>
+                                <div class="col-1 align-self-end mb-1">
+                                    <button type="submit" class="btn">➕</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -76,7 +58,19 @@ export default class List {
         `
     }
 
-    get ItemTemplate() {
-        return ``
+    get TaskTemplate() {
+        let template = ''
+        let tasks = ProxyState.tasks.filter(task => task.listId === this.id)
+        tasks.forEach(t => {
+            template += t.Template
+        })
+        if (!template) {
+            template += `
+            <div class ="col ml-3">
+                <p>Add some Tasks!</p>
+            </div>
+            `
+        }
+        return template
     }
 }
