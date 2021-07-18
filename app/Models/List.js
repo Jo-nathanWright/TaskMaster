@@ -66,7 +66,7 @@ export default class List {
         })
         if (!template) {
             template += `
-            <div class ="col ml-3">
+            <div class ="col ml-5">
                 <p>Add some Tasks!</p>
             </div>
             `

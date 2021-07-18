@@ -8,13 +8,16 @@ class ListsService {
     }
 
     addTask(rawTask) {
-        debugger
         ProxyState.tasks = [...ProxyState.tasks, new Task(rawTask)]
     }
 
     destroy(id) {
-        ProxyState.lists = ProxyState.lists.filter(pizza => pizza.id != id)
-        ProxyState.tasks = ProxyState.tasks.filter(topping => topping.pizzaId != id)
+        ProxyState.lists = ProxyState.lists.filter(lists => lists.id != id)
+        ProxyState.tasks = ProxyState.tasks.filter(tasks => tasks.listsId != id)
+    }
+
+    deleteTask(id) {
+        ProxyState.tasks = ProxyState.tasks.filter(tasks => tasks.id != id)
     }
 
 

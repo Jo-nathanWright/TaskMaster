@@ -17,6 +17,7 @@ export default class ListsController {
         ProxyState.on('lists', _draw)
         ProxyState.on('tasks', _draw)
         ProxyState.on('lists', saveState)
+        ProxyState.on('tasks', saveState)
         _draw()
         loadState()
 
@@ -37,8 +38,11 @@ export default class ListsController {
         listsService.destroy(id)
     }
 
+    deleteTask(id) {
+        listsService.deleteTask(id)
+    }
+
     addTask(listId, event) {
-        debugger
         event.preventDefault()
         let form = event.target
         let rawTask = {

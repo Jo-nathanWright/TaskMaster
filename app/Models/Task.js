@@ -19,7 +19,7 @@ export default class Task {
                     </div>
                 </div>
                 <div class="col-1">
-                    <button type="submit" class="btn" onclick="app.listsController.removeTask('${this.id}')"> <i class="mdi mdi-delete"></i> </button>  
+                    <button type="submit" class="btn" onclick="app.listsController.deleteTask('${this.id}')"> <i class="mdi mdi-delete"></i> </button>
                 </div>
             </div>
         `
