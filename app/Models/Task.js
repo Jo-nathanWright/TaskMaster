@@ -6,7 +6,7 @@ export default class Task {
         this.listId = listId
         this.taskName = taskName
         this.taskTotal = 1
-        this.compeleted = false //Use a turnarry on the checkbox
+        this.compeleted = true //Use a turnarry on the checkbox
     }
 
     get Template() {
@@ -20,7 +20,7 @@ export default class Task {
             <div class="d-flex flex-row justify-content-between">
                 <div class="col-7 align-self-center">
                     <div class="form-check" id="${this.taskName}">
-                        <input type="checkbox" class="form-check-input" onchange="app.listsController.check(${this.compeleted})" ${check}>
+                        <input type="checkbox" class="form-check-input" onchange="app.listsController.check(${this.compeleted}, event)" ${check}>
                         <label class="form-check-label" for="${this.taskName}">
                             ${this.taskName}
                         </label>
