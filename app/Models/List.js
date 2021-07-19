@@ -65,6 +65,9 @@ export default class List {
         let tasks = ProxyState.tasks.filter(task => task.listId === this.id)
         tasks.forEach(t => {
             taskTotal += t.taskTotal
+            if (t.completed == true) {
+                cTaskTotal += 1
+            }
         })
         if (!template) {
             template += `

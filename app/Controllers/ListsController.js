@@ -40,19 +40,19 @@ export default class ListsController {
         listsService.deleteTask(id)
     }
 
-    check(isCompleted) {
-        //Use a turnary return(isComplted ? result if true : result if false)
-    }
-
     addTask(listId, event) {
         event.preventDefault()
         let form = event.target
         let rawTask = {
             listId,
             taskName: form.taskName.value,
-            completed: form.completed.value
+            //completed: this.check()
         }
         listsService.addTask(rawTask)
         form.reset()
+    }
+
+    check(isCompleted) {
+        //return (isCompleted ? isCompleted = false : isCompleted = true)
     }
 }
