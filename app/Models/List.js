@@ -39,7 +39,7 @@ export default class List {
 
                     <!--This sets up New Items in the list-->
 
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="d-flex flex-row justify-content-between">
                             <form onsubmit="app.listsController.addTask('${this.id}', event)">
                                 <div class="form-group col-7 mb-1 mx-1">

@@ -13,7 +13,7 @@ export default class Task {
             <div class="d-flex flex-row justify-content-between">
                 <div class="col-7 align-self-center">
                     <div class="form-check" id="${this.taskName}">
-                        <input type="checkbox" class="form-check-input">
+                        <input type="checkbox" class="form-check-input" onchange="app.listsController.check()">
                         <label class="form-check-label" for="${this.taskName}">
                             ${this.taskName}
                         </label>

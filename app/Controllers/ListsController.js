@@ -40,6 +40,10 @@ export default class ListsController {
         listsService.deleteTask(id)
     }
 
+    check() {
+        console.log("Interacted")
+    }
+
     addTask(listId, event) {
         event.preventDefault()
         let form = event.target
