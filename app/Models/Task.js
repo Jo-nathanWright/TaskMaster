@@ -5,6 +5,7 @@ export default class Task {
         this.id = id
         this.listId = listId
         this.taskName = taskName
+        this.taskTotal = 1
     }
 
     get Template() {
@@ -12,7 +13,7 @@ export default class Task {
             <div class="d-flex flex-row justify-content-between">
                 <div class="col-7 align-self-center">
                     <div class="form-check">
-                        <input class="form-check-input" name="${this.taskName}" type="checkbox">
+                        <input type="checkbox" id="${this.taskName}" class="form-check-input" name="${this.taskName} value="">
                         <label class="form-check-label" for="${this.taskName}">
                             ${this.taskName}
                         </label>

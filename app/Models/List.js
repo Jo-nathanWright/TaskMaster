@@ -22,7 +22,7 @@ export default class List {
                                     <button type="button" class="btn" onclick="app.listsController.destroy('${this.id}')">❌</button>
                                 </div>
                                 <p class="pt-1"><b>${this.listName}</b></p>
-                                <p>2/2</p>
+                                ${this.TaskTotal}
                             </div>
                         </div>
                     </div>
@@ -56,6 +56,22 @@ export default class List {
                 </div>
             </div>
         `
+    }
+
+    get TaskTotal() {
+        let template = ''
+        let cTaskTotal = 0
+        let taskTotal = 0
+        let tasks = ProxyState.tasks.filter(task => task.listId === this.id)
+        tasks.forEach(t => {
+            taskTotal += t.taskTotal
+        })
+        if (!template) {
+            template += `
+            <p>${cTaskTotal}/${taskTotal}</p>
+            `
+        }
+        return template
     }
 
     get TaskTemplate() {

@@ -10,8 +10,6 @@ function _draw() {
     document.getElementById('listBox').innerHTML = template
 }
 
-
-
 export default class ListsController {
     constructor() {
         ProxyState.on('lists', _draw)
