@@ -40,8 +40,8 @@ export default class ListsController {
         listsService.deleteTask(id)
     }
 
-    check() {
-        console.log("Interacted")
+    check(isCompleted) {
+        //Use a turnary return(isComplted ? result if true : result if false)
     }
 
     addTask(listId, event) {
